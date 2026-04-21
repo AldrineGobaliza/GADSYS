@@ -45,6 +45,7 @@
             <a href="{{ route('posts.index') }}">Manage Posts</a>
             <a href="{{ route('posts.create') }}">Create Post</a>
             <a href="{{ route('events.create') }}">Create Event</a>
+            <a href="{{ route('personnels.create') }}">Personnel</a>
         </div>
 
         <!-- Main Content -->

@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\PersonnelController;
 use Illuminate\Support\Facades\Route;
 
 // Registration Routes
@@ -42,9 +43,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('events', EventController::class);
+    Route::resource('posts', PostController::class);
+    Route::resource('personnels', PersonnelController::class);
 });
 
-Route::resource('posts', PostController::class);
 
 Route::get('/', [PublicController::class, 'home']);
 Route::get('/posts/{id}', [PublicController::class, 'showPost']);

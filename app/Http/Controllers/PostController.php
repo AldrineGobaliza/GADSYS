@@ -74,7 +74,8 @@ class PostController extends Controller
 
         $post->update($data);
 
-        return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
+        return redirect()->route('posts.index')
+                         ->with('success', 'Post updated successfully.');
     }
 
     public function destroy(Post $post)
