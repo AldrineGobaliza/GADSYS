@@ -11,7 +11,7 @@ class Personnel extends Model
         'position',
         'email',
         'phone',
-        'staff_image',
+        'staff_photo',
     ];
 
     public function creator()

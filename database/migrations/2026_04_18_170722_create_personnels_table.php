@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('position');
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->string('staff_photo');
+            $table->string('staff_photo')->nullable();
             $table->timestamps();
         });
     }

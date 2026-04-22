@@ -20,7 +20,9 @@ class PersonnelController extends Controller
      */
     public function create()
     {
-        return view('personnels.create');
+        $personnel = \App\Models\Personnel::latest()->get();
+        return view('personnel.create', compact('personnel'));
+
     }
 
     /**
@@ -33,7 +35,7 @@ class PersonnelController extends Controller
             'position' => 'required',
             'email' => 'nullable|email',
             'phone' => 'nullable',
-            'staff_photo' => 'nullable|image',
+            'staff_photo' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
         ]);
 
         // Handle image upload
@@ -41,10 +43,11 @@ class PersonnelController extends Controller
             $data['staff_photo'] = $request->file('staff_photo')->store('personnel', 'public');
         }
 
-        Personnel::create($data);
-
-        return redirect()->route('personnel.index')
-                         ->with('success', 'Personnel added successfully.');
+        $person = Personnel::create($data);
+        
+            return redirect()->route('personnel.create')
+                ->with('success', 'Personnel added successfully.')
+                ->with('new_id', $person->id);
     }
 
     /**
@@ -73,7 +76,7 @@ class PersonnelController extends Controller
             'position' => 'required',
             'email' => 'nullable|email',
             'phone' => 'nullable',
-            'staff_photo' => 'nullable|image',
+            'staff_photo' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
         ]);
 
         // Update image if new one uploaded
@@ -83,8 +86,9 @@ class PersonnelController extends Controller
 
         $personnel->update($data);
 
-        return redirect()->route('personnel.index')
-                         ->with('success', 'Personnel updated successfully.');
+        return redirect()->route('personnel.create')
+                         ->with('success', 'Personnel updated successfully.')
+                         ->with('updated_id', $personnel->id);
     }
 
     /**
@@ -94,7 +98,7 @@ class PersonnelController extends Controller
     {
         $personnel->delete();
 
-        return redirect()->route('personnel.index')
-                         ->with('succes', 'Personnel deleted.');
+        return redirect()->route('personnel.create')
+                         ->with('success', 'Personnel deleted.');
     }
 }

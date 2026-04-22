@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('events', EventController::class);
     Route::resource('posts', PostController::class);
-    Route::resource('personnels', PersonnelController::class);
+    Route::resource('personnel', PersonnelController::class);
 });
 
 
