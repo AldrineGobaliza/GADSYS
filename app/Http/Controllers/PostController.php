@@ -64,12 +64,12 @@ class PostController extends Controller
             'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:5120' 
         ]);
 
-        if ($request->hasFile('staff_photo')) {
-            // delete old staff_photo if exists
-            if ($post->staff_photo) {
-                Storage::disk('public')->delete($post->staff_photo);
+        if ($request->hasFile('image')) {
+            // delete old image if exists
+            if ($post->image) {
+                Storage::disk('public')->delete($post->image);
             }
-            $data['staff_photo'] = $request->file('staff_photo')->store('posts', 'public');
+            $data['image'] = $request->file('image')->store('posts', 'public');
         }
 
         $post->update($data);

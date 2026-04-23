@@ -34,11 +34,7 @@ Route::get('/dashboard', function () {return view('dashboard');})
     ->middleware('auth')
     ->name('dashboard');
 
-Route::get('/posts', function () {
-    return view('posts');
-});
-
-Route::middleware('auth')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -51,4 +47,5 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [PublicController::class, 'home']);
 Route::get('/posts/{id}', [PublicController::class, 'showPost']);
 Route::get('/events', [PublicController::class, 'events']);
+Route::get('/personnel', [PublicController::class, 'personnel']);
 Route::get('/about', [PublicController::class, 'about']);

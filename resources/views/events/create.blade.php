@@ -25,7 +25,6 @@
                 <input type="date" name="event_date" class="form-control">
             </div>
 
-            <!-- Time -->
             <div class="mb-3">
                 <label class="form-label">Start Time</label>
                 <input type="time" name="start_time" class="form-control">

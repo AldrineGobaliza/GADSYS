@@ -25,6 +25,8 @@ public function store(Request $request)
 
     $event->title = $request->title;
     $event->description = $request->description;
+    $event->start_time = $request->start_time;
+    $event->end_time = $request->end_time;
     $event->event_date = $request->event_date;
     $event->location = $request->location;
 
