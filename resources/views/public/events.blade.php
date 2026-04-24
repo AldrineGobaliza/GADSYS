@@ -17,7 +17,7 @@
                 <img 
                     src="{{ asset('storage/'.$event->cover_image) }}" 
                     class="card-img-top"
-                    style="height: 200px; object-fit: cover;"
+                    style=" object-fit: cover;"
                 >
             @endif
 
@@ -48,7 +48,18 @@
 
                 {{-- Description --}}
                 <p class="card-text">
-                    {{ Str::limit($event->description, 100) }}
+
+                    <span id="desc-{{ $event->id }}">
+                        {{ Str::limit($event->description, 100) }}
+                    </span>
+
+                    <a href="#"
+                    class="toggle-desc d-block mt-1"
+                    data-id="{{ $event->id }}"
+                    data-full="{{ $event->description }}">
+                        Read More
+                    </a>
+
                 </p>
 
             </div>
