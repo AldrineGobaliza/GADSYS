@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->string('status')->default('published');
+        Schema::create('documents', function (Blueprint $table) {
+            $table->id();
+            $table->string('file_name');
+            $table->string('file_path');
+            $table->string('file_size');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-        });
+        //
     }
 };

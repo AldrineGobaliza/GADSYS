@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\FolderController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ProfileController;
@@ -30,17 +33,21 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
 
-Route::get('/dashboard', function () {return view('dashboard');})
-    ->middleware('auth')
-    ->name('dashboard');
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
     Route::resource('events', EventController::class);
     Route::resource('posts', PostController::class);
     Route::resource('personnel', PersonnelController::class);
+
+    Route::get('/documents', [DocumentController::class, 'index'])->name('documents.index');
+    Route::post('/documents', [DocumentController::class, 'store'])->name('documents.store');
+    Route::get('/documents/{id}/download', [DocumentController::class, 'download'])->name('documents.download');
+    Route::delete('/documents/{id}', [DocumentController::class, 'destroy'])->name('documents.destroy');
+    Route::post('/folders', [FolderController::class, 'store'])->name('folders.store');
 });
 
 

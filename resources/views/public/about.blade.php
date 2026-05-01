@@ -3,8 +3,8 @@
 @section('content')
 
 <!-- ABOUT SECTION -->
-<div class="mb-5">
-    <h2>About GAD</h2>
+<div class="text-center mb-3">
+    <h2 class="text-center mb-3 fw-bold" >About GAD</h2>
     <p>
 The principle of equality between men and women is enshrined in the Philippine Constitution, to wit: The State recognizes the role of women in nation building, and shall ensure the fundamental equality before the law of women and men (from the 1987 Philippine Constitution; Article II, Section 14.)
  
@@ -16,7 +16,7 @@ The office is mandated by law to adhere with these policies and directives thus;
 
 <!-- SERVICES SECTION -->
 <div class="gad-services position-relative py-5">
-    <h3 class="text-center mb-5 fw-bold">GAD Services</h3>
+    <h3 class="text-center mb-5 fw-bold">Our Services</h3>
 
     <div class="timeline-line"></div>
 
@@ -38,19 +38,19 @@ The office is mandated by law to adhere with these policies and directives thus;
                 'icon' => 'bi-mic-fill'
             ],
             [
-                'title' => 'Advocacy Campaigns',
-                'description' => 'Initiatives aimed at promoting gender equality and social awareness.',
-                'icon' => 'bi-megaphone-fill'
-            ],
-            [
                 'title' => 'Gender Mainstreaming',
                 'description' => 'This is one of the major strategies in educating and informing various sectors of society on the need to recognize and respect the rights of women, men and members of the LGBTQ community so that everybody will benefit equally and inequality is not perpetuated.',
                 'icon' => 'bi-file-earmark-text-fill'
             ],
+            [
+                'title' => 'Gender-Neutral Facilities and Policies',
+                'description' => 'The office would like to imbibe GAD Principles in the Engineering Designs, Layouts and Plans for the facilities of the university with inclusive GAD demands like the gender-neutral comfort rooms for our transgender students and lesbians and ramp for PWD students. All the buildings at the Young field area like the ILS, New Academic, Dormitories, Conversion, Health and Wellness Center, also the Research Extension and Innovation Center in Candahug, Palo and the new Learning Resource Center at the College building are in compliance with these principles. The space for toddlers and breastfeeding area for our lactating mothers (for students, faculty and personnel) will also be furnished at the Health and Wellness Center.',
+                'icon' => 'bi-megaphone-fill'
+            ],
 
             [
-            'title' => 'Gender Mainstreaming',
-                'description' => 'The office would like to imbibe GAD Principles in the Engineering Designs, Layouts and Plans for the facilities of the university with inclusive GAD demands like the gender-neutral comfort rooms for our transgender students and lesbians and ramp for PWD students. All the buildings at the Young field area like the ILS, New Academic, Dormitories, Conversion, Health and Wellness Center, also the Research Extension and Innovation Center in Candahug, Palo and the new Learning Resource Center at the College building are in compliance with these principles. The space for toddlers and breastfeeding area for our lactating mothers (for students, faculty and personnel) will also be furnished at the Health and Wellness Center.',
+            'title' => 'Gender Research and Advocacy',
+                'description' => 'In the realization of relevant and responsive research in the university, the Research office aims at generating, or applying new knowledge and technologies for improving productivity, promoting peace, empowering women, protecting the environment and alleviating poverty. Appropriate to this mission, faculty members and students of the university shall conduct gender-related researches addressing issues in relation to the aforementioned concerns. That is why when you take your Research subject, you are also encouraged to conduct gender and women’s studies.',
                 'icon' => 'bi-file-earmark-text-fill'
             ],
 
@@ -64,10 +64,7 @@ The office is mandated by law to adhere with these policies and directives thus;
 
     <div class="container">
         @foreach($services as $index => $service)
-            <div 
-                class="row align-items-center mb-5 service-item"
-                x-data="{ open: false }"
-            >
+            <div class="row align-items-center mb-5 service-item" x-data="{ open: false }">
 
                 {{-- LEFT SIDE --}}
                 <div class="col-md-5 text-md-end">
@@ -126,8 +123,8 @@ The office is mandated by law to adhere with these policies and directives thus;
                         <img 
                             src="{{ $person->staff_photo ? asset('storage/'.$person->staff_photo) : 'https://via.placeholder.com/300x250?text=No+Image' }}" 
                             class="profile-img">
-                        <h5 class="mt-3">{{ $person->name }}</h5>
-                        <p class="text-muted">{{ $person->position }}</p>
+                        <h5 class="text-center mt-2 name-fit">{{ $person->name }}</h5>
+                        <p class="card-text-muted">{{ $person->position }}</p>
                         <p class="small mt-2">
                             <span class="flip-icon">
                                 <i class="bi bi-arrow-left-right"></i>
@@ -154,7 +151,7 @@ The office is mandated by law to adhere with these policies and directives thus;
                         @endif
 
                         <div class="mt-3">
-                            <small class="text-muted">Available for inquiries</small>
+                            <small class="text-muted"></small>
                         </div>
                     </div>
 

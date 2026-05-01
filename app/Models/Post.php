@@ -10,7 +10,8 @@ class Post extends Model
     'title',
     'content',
     'event_date',
-    'images'
+    'images',
+    'user_id'
     ];
     
     public function images()

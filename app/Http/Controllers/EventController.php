@@ -37,7 +37,9 @@ public function store(Request $request)
 
     $event->save();
 
-    return redirect()->route('events.index');
+    return redirect()
+        ->route('events.create')
+         ->with('success', 'Event added successfully.');
 }
 
 }

@@ -35,7 +35,7 @@ class PersonnelController extends Controller
             'position' => 'required',
             'email' => 'nullable|email',
             'phone' => 'nullable',
-            'staff_photo' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
+            'staff_photo' => 'nullable|image|mimes:jpg,jpeg,png|max:6144',
         ]);
 
         // Handle image upload
@@ -76,7 +76,7 @@ class PersonnelController extends Controller
             'position' => 'required',
             'email' => 'nullable|email',
             'phone' => 'nullable',
-            'staff_photo' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
+            'staff_photo' => 'nullable|image|mimes:jpg,jpeg,png|max:6144',
         ]);
 
         // Update image if new one uploaded

@@ -12,6 +12,8 @@
 
         <div class="card h-100">
 
+
+            <div class="card-body">
             {{-- Image --}}
             @if($event->cover_image)
                 <img 
@@ -21,10 +23,8 @@
                 >
             @endif
 
-            <div class="card-body">
-
                 {{-- Title --}}
-                <h5 class="card-title">{{ $event->title }}</h5>
+                <h5 class="card-title fw-bold">{{ $event->title }}</h5>
 
                 {{-- Date --}}
                 <p class="text-muted mb-1">

@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\PostImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -20,7 +21,7 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
             'event_date' => 'nullable|date',
-            'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:5120' 
+            'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:6144' 
         ]);
 
         // Save post
@@ -28,6 +29,7 @@ class PostController extends Controller
             'title' => $data['title'],
             'content' => $data['content'],
             'event_date' => $data['event_date'] ?? null,
+            'user_id' => Auth::id(),
         ]);
 
         // Save each uploaded image
@@ -46,7 +48,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::latest()->get(); // get all posts, newest first
+        $posts = Post::latest()->get(); 
         return view('posts.index', compact('posts'));
     }
 
@@ -61,7 +63,7 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
             'event_date' => 'nullable|date',
-            'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:5120' 
+            'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:6144' 
         ]);
 
         if ($request->hasFile('image')) {

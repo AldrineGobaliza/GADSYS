@@ -10,9 +10,13 @@ class PublicController extends Controller
 {
     public function home()
     {
-        $posts = Post::where('status', 'published')
-                     ->latest()
-                     ->get();
+       // $posts = Post::where('status', 'published')
+       //              ->latest()
+       //              ->get()
+
+        $posts = Post::orderBy('event_date', 'asc')
+                ->latest()
+                ->get();       
 
         $events = Event::orderBy('event_date', 'asc')
                 ->take(5)

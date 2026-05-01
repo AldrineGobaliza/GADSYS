@@ -47,15 +47,3 @@ return new class extends Migration
         Schema::dropIfExists('sessions');
     }
 };
-            $table->id();
-            $table->string("title");
-            $table->text('caption');
-            $table->date('event_date')->nullable();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
-
-
-            $table->id();
-            $table->string('image_path');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->timestamps();

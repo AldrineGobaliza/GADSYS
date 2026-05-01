@@ -19,8 +19,8 @@ return new class extends Migration
             $table->time('start_time')->nullable();
             $table->time('end_time')->nullable();
             $table->string('location');
-            $table->string('cover_image');
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
+            $table->string('cover_image')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

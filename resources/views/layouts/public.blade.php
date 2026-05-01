@@ -11,9 +11,6 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <style>
-        .gad-services {
-            background: #f9fafb;
-        }
 
         /* Vertical center line */
         .timeline-line {
@@ -87,8 +84,8 @@
             border-radius: 12px;
             backface-visibility: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            padding: 20px;
-            background: #fff;
+            padding: 10px;
+            background: radial-gradient(circle, #ffffff, #9e9e9e);
         }
 
         /* Front */
@@ -109,9 +106,9 @@
         /* Image */
         .profile-img {
             width: 100%;
-            height: 230px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 100%;
+            border-radius: 10PX;
         }
 
         /* Small animation */

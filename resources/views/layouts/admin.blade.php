@@ -57,6 +57,9 @@
             <a href="{{ route('personnel.create') }}"
             class="{{ request()->routeIs('personnel.create') ? 'active' : '' }}">
                 Personnel</a>
+            <a href="{{ route('documents.index') }}"
+            class="{{ request()->routeIs('documents.index') ? 'active' : '' }}">
+                File Management</a>
         </div>
 
         <!-- Main Content -->
