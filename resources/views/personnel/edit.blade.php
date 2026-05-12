@@ -33,7 +33,7 @@
     </div>
 
     @if($personnel->staff_photo)
-        <img src="{{ asset('storage/'.$personnel->staff_photo) }}" width="120" class="mb-3">
+    <img src="{{ asset('storage/'.$personnel->staff_photo) }}" width="120" class="mb-3">
     @endif
 
     <button class="btn btn-primary">Update</button>

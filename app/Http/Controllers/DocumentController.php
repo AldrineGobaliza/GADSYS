@@ -29,24 +29,24 @@ class DocumentController extends Controller
 
     public function store(Request $request)
     {
-            $request->validate([
-        'file.*' => 'required|file|max:2048', // each file validation
-    ]);
+        $request->validate([
+            'file.*' => 'required|file|max:15000',
+        ]);
 
-    if ($request->hasFile('file')) {
-        foreach ($request->file('file') as $file) {
+        if ($request->hasFile('file')) {
+            foreach ($request->file('file') as $file) {
 
-            $path = $file->store('documents', 'public');
+                $path = $file->store('documents', 'public');
 
-            Document::create([
-                'file_name' => $file->getClientOriginalName(),
-                'file_path' => $path,
-                'file_size' => $file->getSize(),
-                'user_id' => Auth::id(),
-                'folder_id' => $request->folder_id,
-            ]);
+                Document::create([
+                    'file_name' => $file->getClientOriginalName(),
+                    'file_path' => $path,
+                    'file_size' => $file->getSize(),
+                    'user_id' => Auth::id(),
+                    'folder_id' => $request->folder_id,
+                ]);
+            }
         }
-    }
 
         return back()->with('success', 'File uploaded successfully');
     }

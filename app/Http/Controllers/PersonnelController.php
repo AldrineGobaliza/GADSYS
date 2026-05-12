@@ -22,7 +22,6 @@ class PersonnelController extends Controller
     {
         $personnel = \App\Models\Personnel::latest()->get();
         return view('personnel.create', compact('personnel'));
-
     }
 
     /**
@@ -44,10 +43,10 @@ class PersonnelController extends Controller
         }
 
         $person = Personnel::create($data);
-        
-            return redirect()->route('personnel.create')
-                ->with('success', 'Personnel added successfully.')
-                ->with('new_id', $person->id);
+
+        return redirect()->route('personnel.create')
+            ->with('success', 'Personnel added successfully.')
+            ->with('new_id', $person->id);
     }
 
     /**
@@ -87,8 +86,8 @@ class PersonnelController extends Controller
         $personnel->update($data);
 
         return redirect()->route('personnel.create')
-                         ->with('success', 'Personnel updated successfully.')
-                         ->with('updated_id', $personnel->id);
+            ->with('success', 'Personnel updated successfully.')
+            ->with('updated_id', $personnel->id);
     }
 
     /**
@@ -99,6 +98,6 @@ class PersonnelController extends Controller
         $personnel->delete();
 
         return redirect()->route('personnel.create')
-                         ->with('success', 'Personnel deleted.');
+            ->with('success', 'Personnel deleted.');
     }
 }

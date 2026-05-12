@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Event;
 use App\Models\PostImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +22,7 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
             'event_date' => 'nullable|date',
-            'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:6144' 
+            'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:6144'
         ]);
 
         // Save post
@@ -48,8 +49,10 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::latest()->get(); 
-        return view('posts.index', compact('posts'));
+        $posts = Post::latest()->get();
+        $events = Event::latest()->get();
+
+        return view('posts.index', compact('posts', 'events'));
     }
 
     public function edit(Post $post)
@@ -63,7 +66,7 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
             'event_date' => 'nullable|date',
-            'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:6144' 
+            'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:6144'
         ]);
 
         if ($request->hasFile('image')) {
@@ -77,7 +80,7 @@ class PostController extends Controller
         $post->update($data);
 
         return redirect()->route('posts.index')
-                         ->with('success', 'Post updated successfully.');
+            ->with('success', 'Post updated successfully.');
     }
 
     public function destroy(Post $post)

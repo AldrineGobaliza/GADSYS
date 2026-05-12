@@ -17,7 +17,7 @@ class Event extends Model
         'created_by'
     ];
 
-    public function creator()
+    public function User()
     {
         return $this->belongsTo(User::class, 'created_by');
     }

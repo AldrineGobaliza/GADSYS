@@ -1,19 +1,21 @@
-
 <style>
-.nav-link.active {
-    font-weight: bold;
-    text-decoration: underline;
-}
+    .nav-link.active {
+        font-weight: bold;
+        text-decoration: underline;
+    }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="/">GAD Office</a>
+        <a class="navbar-brand" href="/">
+
+            LNU Gender and Development
+        </a>
 
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="nav">
             <ul class="navbar-nav ms-auto">
 

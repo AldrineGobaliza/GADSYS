@@ -18,7 +18,7 @@
 
                     <div class="mb-3">
                         @foreach($post->images as $image)
-                            <img src="{{ asset('storage/'.$image->image_path) }}" width="100" class="me-2 mb-2 rounded">
+                        <img src="{{ asset('storage/'.$image->image_path) }}" width="100" class="me-2 mb-2 rounded">
                         @endforeach
                     </div>
 
